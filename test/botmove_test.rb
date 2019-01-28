@@ -14,11 +14,32 @@ class BotmoveTest <  Minitest::Test
     assert_equal [0,0], actual
   end
 
-  def test_rto_movement
+  def test_rto_rotate
     bot = Botmove.new
-    bot.returns_to_origin('l')
+    bot.returns_to_origin('lll')
     actual = bot.dir
-    assert_equal ['r', 'f', 'l', 'b'], actual
+    assert_equal [:r, :f, :l, :b], actual
   end
+
+  def test_rto_move
+    bot = Botmove.new
+    bot.returns_to_origin('lg')
+    actual = bot.coords
+    assert_equal [0, -1], actual
+  end
+
+  def test_rto_move
+    bot = Botmove.new
+    bot.returns_to_origin('glglglg')
+    actual = bot.coords
+    assert_equal [0, 0], actual
+  end
+
+  # def test_implement1
+  #   bot = Botmove.new
+  #   bot.returns_to_origin('GRGRGRG')
+  #   actual = bot.coords
+  #   assert_equal [0, 0], actual
+  # end
 
 end

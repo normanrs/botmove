@@ -1,22 +1,20 @@
 class Botmove
   attr_reader :dir,
               :fb,
-              :lr,
-              :coords
+              :lr
 
   def initialize
     @dir = [:f, :l, :b, :r]
     @fb  = 0
     @lr  = 0
-    @coords = [@fb, @lr]
   end
 
   def l
-    @dir.rotate
+    @dir.rotate!
   end
 
   def r
-    @dir.rotate(-1)
+    @dir.rotate!(-1)
   end
 
   def g
@@ -34,9 +32,15 @@ class Botmove
   end
 
   def returns_to_origin(text)
-    commands = (text.split('')).map { |x| x.to_sym }
-    commands.each { |d| self.send d }
-    require "pry"; binding.pry
+    commands = (text.downcase.split('')).map { |x| x.to_sym }
+    commands.each do|d|
+      self.send d
+      require "pry"; binding.pry
+    end
+  end
+
+  def coords
+    [@fb, @lr]
   end
 
 end
