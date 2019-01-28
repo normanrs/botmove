@@ -59,4 +59,10 @@ class BotmoveTest <  Minitest::Test
     assert_equal false, actual
   end
 
+  def test_implement_empty_command
+    bot = Botmove.new
+    actual = bot.returns_to_origin('')
+    assert_equal true, actual
+  end
+
 end

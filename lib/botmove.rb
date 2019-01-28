@@ -32,15 +32,11 @@ class Botmove
   end
 
   def returns_to_origin(text)
-    commands = (text.downcase.split('')).map { |x| x.to_sym }
-    commands.each do|d|
-      self.send d
+    commands = (text.downcase.split(''))
+    commands.each do |cmd|
+      self.send cmd.to_sym if (['l', 'g', 'r'].include? cmd)
     end
-    if self.coords == [0, 0]
-      return true
-    else
-      return false
-    end
+    return (self.coords == [0, 0])
   end
 
   def coords
