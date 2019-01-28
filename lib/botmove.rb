@@ -36,6 +36,11 @@ class Botmove
     commands.each do|d|
       self.send d
     end
+    if self.coords == [0, 0]
+      return true
+    else
+      return false
+    end
   end
 
   def coords

@@ -37,9 +37,26 @@ class BotmoveTest <  Minitest::Test
 
   def test_implement1
     bot = Botmove.new
-    bot.returns_to_origin('GRGRGRG')
-    actual = bot.coords
-    assert_equal [0, 0], actual
+    actual = bot.returns_to_origin('GRGRGRG')
+    assert_equal true, actual
+  end
+
+  def test_implement2
+    bot = Botmove.new
+    actual = bot.returns_to_origin('GRGRLL')
+    assert_equal false, actual
+  end
+
+  def test_implement3
+    bot = Botmove.new
+    actual = bot.returns_to_origin('GRGGRGGRGRGLG')
+    assert_equal true, actual
+  end
+
+  def test_implement4
+    bot = Botmove.new
+    actual = bot.returns_to_origin('GRGRGGLGRGRGRG')
+    assert_equal false, actual
   end
 
 end
