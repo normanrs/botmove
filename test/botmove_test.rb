@@ -28,18 +28,18 @@ class BotmoveTest <  Minitest::Test
     assert_equal [0, -1], actual
   end
 
-  def test_rto_move
+  def test_rto_move_more
     bot = Botmove.new
     bot.returns_to_origin('glglglg')
     actual = bot.coords
     assert_equal [0, 0], actual
   end
 
-  # def test_implement1
-  #   bot = Botmove.new
-  #   bot.returns_to_origin('GRGRGRG')
-  #   actual = bot.coords
-  #   assert_equal [0, 0], actual
-  # end
+  def test_implement1
+    bot = Botmove.new
+    bot.returns_to_origin('GRGRGRG')
+    actual = bot.coords
+    assert_equal [0, 0], actual
+  end
 
 end

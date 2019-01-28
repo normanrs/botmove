@@ -23,7 +23,7 @@ class Botmove
     elsif @dir[0] == :l
       @lr -= 1
     elsif @dir[0] == :b
-      @fb =- 1
+      @fb -= 1
     elsif @dir[0] == :r
       @lr += 1
     else
@@ -35,7 +35,6 @@ class Botmove
     commands = (text.downcase.split('')).map { |x| x.to_sym }
     commands.each do|d|
       self.send d
-      require "pry"; binding.pry
     end
   end
 
